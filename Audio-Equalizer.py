@@ -102,7 +102,7 @@ if uploaded_file:
     bass_eq, mid_eq, treble_eq = compute_band_means(freqs_eq, mag_eq)
 
     # Fungsi untuk menampilkan tabel numerik dari nilai frekuensi audio
-    st.write("Numeric Frequensi Result (Mean per Band):")
+    st.write("Numeric Frequency Result (Mean per Band):")
     combined_df = pd.DataFrame({
         "Band": ["Bass", "Mid", "Treble"],
         "Magnitude (Original)": [bass_orig, mid_orig, treble_orig],
@@ -115,8 +115,8 @@ if uploaded_file:
     # Fungsi untuk menampikan visualiasi nilai frekuensi keduanya
     plt.figure(figsize=(10, 12))
     plt.subplot(3, 1, 1)
-    plt.title("Musik Orisinil vs Equalized")
-    plt.plot(audio_data, color="blue", label='Orisinil')
+    plt.title("Musik Original vs Equalized")
+    plt.plot(audio_data, color="blue", label='Original')
     plt.plot(equalized_audio, color="orange", alpha=0.45, label="Equalized")
     plt.xlim(0, len(audio_data))
     plt.xlabel("Sample")
@@ -124,5 +124,5 @@ if uploaded_file:
     plt.legend(fontsize=10, loc='upper right')
 
     # Menampilkan grafik dengan Streamlit
-    st.write("Visualisasi Audio: Orisinil vs Hasil EQ")
+    st.write("Audio Visualization: Original vs EQ Result")
     st.pyplot(plt)
