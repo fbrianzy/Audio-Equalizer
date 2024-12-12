@@ -54,20 +54,28 @@ if uploaded_file:
         mime="audio/wav"
     )
 
+    
     # Display waveforms
-    st.write("Perbandingan Amplitudo")
-    fig, ax = plt.subplots(2, 1, figsize=(12, 6))
+    plt.figure(figsize=(6, 4))
+    plt.subplot(2, 1, 1)  # Baris 1 dari 2
+    plt.title("Musik orisinil")
+    plt.plot(audio_data, color="blue")
+    plt.xlim(0, len(audio_data))
+    plt.xlabel("Sample")
+    plt.ylabel("Amplitude")
 
-    ax[0].set_title("Musik orisinil")
-    ax[0].plot(audio_data, color="blue")
-    ax[0].set_xlim(0, len(audio_data))
-    ax[0].set_xlabel("Sample")
-    ax[0].set_ylabel("Amplitude")
+    # Menampilkan grafik dengan Streamlit
+    st.write("Visualisasi Audio: Orisinil")
+    st.pyplot(plt)
 
-    ax[1].set_title("Musik hasil EQ")
-    ax[1].plot(equalized_audio, color="orange")
-    ax[1].set_xlim(0, len(equalized_audio))
-    ax[1].set_xlabel("Sample")
-    ax[1].set_ylabel("Amplitude")
+    plt.figure(figsize=(6,4))
+    plt.subplot(2, 1, 2)  # Baris 2 dari 2
+    plt.title("Musik Hasil EQ")
+    plt.plot(equalized_audio, color="orange")
+    plt.xlim(0, len(equalized_audio))
+    plt.xlabel("Sample")
+    plt.ylabel("Amplitude")
 
-    st.pyplot(fig)
+    # Menampilkan grafik dengan Streamlit
+    st.write("Visualisasi Audio: Hasil EQ")
+    st.pyplot(plt)
