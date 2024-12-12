@@ -3,3 +3,4 @@ librosa
 soundfile
 matplotlib
 numpy
+pandas
