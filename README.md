@@ -1,1 +1,1 @@
-Audio-Equalizer with PY
+Audio-Equalizer with PY using Librosa
