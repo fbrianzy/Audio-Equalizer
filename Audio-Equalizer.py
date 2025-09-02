@@ -10,7 +10,7 @@ import pandas as pd # Library untuk dataframe
 def equalize_audio(audio, sr, bass_gain=1.0, mid_gain=1.0, treble_gain=1.0):
 
     # Fungsi untuk merubah audio menjadi frekuensi
-    stft = np.fft.fft(audio) # Menggunakan FFT, yaitu merubah domain waktu menjadi domain frekuensi
+    stft = np.fft.fft(audio) # Menggunakan FFT (Fast Fourier Transform), yaitu merubah domain waktu menjadi domain frekuensi
     freqs = np.fft.fftfreq(len(stft), 1 / sr) # Menggunakan fungsi np.fft.fftfreq, menghasilkan array freqs yang merepresentasikan nilai frekuensi untuk setiap elemen di stft.
 
     # Inisialisasi Rentang Equalizer
@@ -126,3 +126,4 @@ if uploaded_file:
     # Menampilkan grafik dengan Streamlit
     st.write("Audio Visualization: Original vs EQ Result")
     st.pyplot(plt)
+
